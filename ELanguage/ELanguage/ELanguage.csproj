@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B6245CEF-BE2C-4AA5-9146-C5E4019838B1}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ELanguage</RootNamespace>
+    <AssemblyName>ELanguage</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Libs\Forms.cs" />
+    <Compile Include="Libs\ILib.cs" />
+    <Compile Include="Libs\Math.cs" />
+    <Compile Include="Libs\Std.cs" />
+    <Compile Include="STX\Parser\Expression.cs" />
+    <Compile Include="STX\Parser\Expressions\BinaryExpression.cs" />
+    <Compile Include="STX\Parser\Expressions\ConditionalExpression.cs" />
+    <Compile Include="STX\Parser\Expressions\FunctionalExpression.cs" />
+    <Compile Include="STX\Parser\Expressions\NumberExpression.cs" />
+    <Compile Include="STX\Parser\Expressions\UnaryExpression.cs" />
+    <Compile Include="STX\Parser\Expressions\VariableExpression.cs" />
+    <Compile Include="STX\Parser\Function.cs" />
+    <Compile Include="STX\Parser\Functions.cs" />
+    <Compile Include="STX\Lexer\Lexer.cs" />
+    <Compile Include="STX\Lexer\Token\Token.cs" />
+    <Compile Include="STX\Lexer\Token\TokenType.cs" />
+    <Compile Include="STX\Parser\Visitor\Node.cs" />
+    <Compile Include="STX\Parser\Parser.cs" />
+    <Compile Include="STX\Parser\Statement.cs" />
+    <Compile Include="STX\Parser\Statements\ArrayAccessExpression.cs" />
+    <Compile Include="STX\Parser\Statements\ArrayAssigmentStatement.cs" />
+    <Compile Include="STX\Parser\Statements\AssigmentStatement.cs" />
+    <Compile Include="STX\Parser\Statements\BlockStatement.cs" />
+    <Compile Include="STX\Parser\Statements\BreakStatement.cs" />
+    <Compile Include="STX\Parser\Statements\ContinueStatement.cs" />
+    <Compile Include="STX\Parser\Statements\DoWhileStatement.cs" />
+    <Compile Include="STX\Parser\Statements\ForStatement.cs" />
+    <Compile Include="STX\Parser\Statements\FunctionDefineStatement.cs" />
+    <Compile Include="STX\Parser\Statements\FunctionStatement.cs" />
+    <Compile Include="STX\Parser\Statements\IfStatement.cs" />
+    <Compile Include="STX\Parser\Statements\PrintlnStatement.cs" />
+    <Compile Include="STX\Parser\Statements\PrintStatement.cs" />
+    <Compile Include="STX\Parser\Statements\ReturnStatement.cs" />
+    <Compile Include="STX\Parser\Statements\UseStatement.cs" />
+    <Compile Include="STX\Parser\Statements\WhileStatement.cs" />
+    <Compile Include="STX\Parser\UserFunctions.cs" />
+    <Compile Include="STX\Parser\UserVariables.cs" />
+    <Compile Include="STX\Parser\Value.cs" />
+    <Compile Include="STX\Parser\Values\ArrayValue.cs" />
+    <Compile Include="STX\Parser\Values\NumberValue.cs" />
+    <Compile Include="STX\Parser\Values\StringValue.cs" />
+    <Compile Include="STX\Parser\Values\VariableValue.cs" />
+    <Compile Include="STX\Parser\Visitor\Visitor.cs" />
+    <Compile Include="STX\Parser\Visitor\FunctionAdder.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Example\basic.cfm" />
+    <None Include="Example\file2.cfm" />
+    <None Include="Example\test.cfm" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

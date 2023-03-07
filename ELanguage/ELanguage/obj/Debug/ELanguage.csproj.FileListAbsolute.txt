@@ -1,0 +1,8 @@
+C:\Users\User\source\repos\ELanguage\ELanguage\obj\Debug\ELanguage.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\ELanguage\ELanguage\obj\Debug\ELanguage.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\source\repos\ELanguage\ELanguage\obj\Debug\ELanguage.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\ELanguage\ELanguage\bin\Debug\ELanguage.exe.config
+C:\Users\User\source\repos\ELanguage\ELanguage\bin\Debug\ELanguage.exe
+C:\Users\User\source\repos\ELanguage\ELanguage\bin\Debug\ELanguage.pdb
+C:\Users\User\source\repos\ELanguage\ELanguage\obj\Debug\ELanguage.exe
+C:\Users\User\source\repos\ELanguage\ELanguage\obj\Debug\ELanguage.pdb
