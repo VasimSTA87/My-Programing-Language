@@ -1,8 +1,0 @@
-C:\Users\User\source\repos\ELanguage\RuningXT_Code\bin\Debug\RuningXT_Code.exe.config
-C:\Users\User\source\repos\ELanguage\RuningXT_Code\bin\Debug\RuningXT_Code.exe
-C:\Users\User\source\repos\ELanguage\RuningXT_Code\bin\Debug\RuningXT_Code.pdb
-C:\Users\User\source\repos\ELanguage\RuningXT_Code\obj\Debug\RuningXT_Code.csproj.AssemblyReference.cache
-C:\Users\User\source\repos\ELanguage\RuningXT_Code\obj\Debug\RuningXT_Code.csproj.SuggestedBindingRedirects.cache
-C:\Users\User\source\repos\ELanguage\RuningXT_Code\obj\Debug\RuningXT_Code.csproj.CoreCompileInputs.cache
-C:\Users\User\source\repos\ELanguage\RuningXT_Code\obj\Debug\RuningXT_Code.exe
-C:\Users\User\source\repos\ELanguage\RuningXT_Code\obj\Debug\RuningXT_Code.pdb
