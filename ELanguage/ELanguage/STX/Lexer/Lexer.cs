@@ -17,7 +17,9 @@ namespace ELangugage
         private List<Operator> operators = new List<Operator>()
         {
             new Operator('+', TokenType.Plus),
+            new Operator("++", TokenType.Increment),
             new Operator('-', TokenType.Minus),
+            new Operator("--", TokenType.Decrement),
             new Operator('*', TokenType.Star),
             new Operator('/', TokenType.Slash),
 
@@ -49,7 +51,7 @@ namespace ELangugage
             new Operator("[", TokenType.Lbracket),
             new Operator("]", TokenType.Rbracket),
         };
-
+        
         public Lexer(string input)
         {
             this.input = input;
@@ -121,6 +123,7 @@ namespace ELangugage
 
                 if (!Match(text + current) && text != "")
                 {
+
                     AddToken(GetOperatorToken(text));
                     return;
                 }
@@ -195,6 +198,12 @@ namespace ELangugage
                     AddToken(TokenType.Use); break;
                 case "import":
                     AddToken(TokenType.Import); break;
+                case "and":
+                    AddToken(TokenType.AmpAmp); break;
+                case "or":
+                    AddToken(TokenType.BarBar); break;
+                case "not":
+                    AddToken(TokenType.ExclEquals); break;
                 default:
                     AddToken(TokenType.Word, buffer.ToString()); break;
             }
@@ -257,7 +266,10 @@ namespace ELangugage
             return input[position];
         }
 
-        private void AddToken(TokenType type, string value = "") => tokens.Add(new Token(type, value));
+        private void AddToken(TokenType type, string value = "")
+        {
+            tokens.Add(new Token(type, value));
+        }
         
         private bool IsNumber(char symbol)
         {
@@ -283,7 +295,8 @@ namespace ELangugage
         
         private bool IsLetterOrNumber(char symbol)
         {
-            if (IsLetter(symbol) || IsNumber(symbol)) return true;
+            if (IsLetter(symbol) || IsNumber(symbol)) 
+                return true;
 
             return false;
         }

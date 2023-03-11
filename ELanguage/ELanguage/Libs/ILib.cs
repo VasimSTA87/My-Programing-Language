@@ -1,6 +1,6 @@
 ﻿namespace ELanguage.Libs
 {
-    internal interface ILib
+    public interface ILib
     {
         void Init();
     }

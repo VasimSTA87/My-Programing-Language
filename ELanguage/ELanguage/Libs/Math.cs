@@ -1,38 +1,37 @@
 ﻿using ELanguage.Parser;
 using ELangugage;
 using System;
-using System.Collections.Generic;
 
 namespace ELanguage.Libs
 {
-    internal class UseMath
+    internal class UseMath : ILib
     {
-        public static void AddLib(Dictionary<string, Function> functions)
+        public void Init()
         {
-            functions.Add("sin", new Sin());
-            functions.Add("cos", new Cos());
-            functions.Add("atan", new Atan());
-            functions.Add("abs", new Abs());
-            functions.Add("acos", new Acos());
-            functions.Add("asin", new Asin());
-            functions.Add("ceiling", new Ceiling());
-            functions.Add("cosh", new Cosh());
-            functions.Add("exp", new Exp());
-            functions.Add("floor", new Floor());
-            functions.Add("IEEERemainder", new IEEERemainder());
-            functions.Add("log", new Log());
-            functions.Add("log10", new Log10());
-            functions.Add("max", new Max());
-            functions.Add("min", new Min());
-            functions.Add("pow", new Pow());
-            functions.Add("round", new Round());
-            functions.Add("sign", new Sign());
-            functions.Add("sinh", new Sinh());
-            functions.Add("sqrt", new Sqrt());
-            functions.Add("tan", new Tan());
-            functions.Add("tanh", new Tanh());
-            functions.Add("truncate", new Truncate());
-            functions.Add("random", new Random());
+            Functions.Set("sin", new Sin());
+            Functions.Set("cos", new Cos());
+            Functions.Set("atan", new Atan());
+            Functions.Set("abs", new Abs());
+            Functions.Set("acos", new Acos());
+            Functions.Set("asin", new Asin());
+            Functions.Set("ceiling", new Ceiling());
+            Functions.Set("cosh", new Cosh());
+            Functions.Set("exp", new Exp());
+            Functions.Set("floor", new Floor());
+            Functions.Set("IEEERemainder", new IEEERemainder());
+            Functions.Set("log", new Log());
+            Functions.Set("log10", new Log10());
+            Functions.Set("max", new Max());
+            Functions.Set("min", new Min());
+            Functions.Set("pow", new Pow());
+            Functions.Set("round", new Round());
+            Functions.Set("sign", new Sign());
+            Functions.Set("sinh", new Sinh());
+            Functions.Set("sqrt", new Sqrt());
+            Functions.Set("tan", new Tan());
+            Functions.Set("tanh", new Tanh());
+            Functions.Set("truncate", new Truncate());
+            Functions.Set("random", new Random());
         }
     }
 

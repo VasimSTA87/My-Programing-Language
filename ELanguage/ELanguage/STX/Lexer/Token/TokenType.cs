@@ -21,6 +21,9 @@
         Use,
         Import,
 
+        Increment,
+        Decrement,
+
         Plus,
         Minus,
         Star,

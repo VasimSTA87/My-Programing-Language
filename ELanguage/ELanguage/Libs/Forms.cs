@@ -1,21 +1,22 @@
 ﻿using ELanguage.Parser;
 using ELangugage;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ELanguage.Libs
 {
-    internal class UseForms
-    {
+    internal class UseForms : ILib
+    { 
         public static Form window;
 
-        public static void AddLib(Dictionary<string, Function> functions)
+        public void Init()
         {
-            functions.Add("newWindow", new NewWindow());
-            functions.Add("update", new Update());
+            Functions.Set("window", new NewWindow());
+            Functions.Set("button", new NewButton());
         }
 
-        public class NewWindow : Function
+        private class NewWindow : Function
         {
             public Value Execute(params Value[] args)
             {
@@ -51,12 +52,26 @@ namespace ELanguage.Libs
             }
         }
 
-        public class Update : Function
+        private class NewButton : Function
         {
             public Value Execute(params Value[] args)
             {
-                window.Update();
+                Button btn = new Button();
 
+                switch (args.Length)
+                {
+                    case 1:
+                        btn.Text = args[0].AsString();
+                        btn.Size = new Size(50, 25);
+                        btn.Top = 0;
+                        btn.Left = 0;
+                        break;
+                    case 3:
+                        btn.Size = new Size((int)args[1].AsDouble(), (int)args[2].AsDouble());
+                        break;
+                }
+
+                window.Controls.Add(btn);
                 return new NumberValue(0);
             }
         }

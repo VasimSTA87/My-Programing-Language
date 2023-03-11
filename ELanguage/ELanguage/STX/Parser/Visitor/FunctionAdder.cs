@@ -1,5 +1,6 @@
 ﻿using ELanguage.Parser.Expressions;
 using ELanguage.Parser.Statements;
+using ELanguage.STX.Parser.Expressions;
 using ELangugage;
 
 namespace ELanguage
@@ -139,5 +140,9 @@ namespace ELanguage
             
         }
 
+        public void Visit(IncrementExpression st)
+        {
+            
+        }
     }
 }

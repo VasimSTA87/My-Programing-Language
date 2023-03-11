@@ -1,4 +1,6 @@
-﻿using ELangugage;
+﻿using ELanguage.Libs;
+using ELangugage;
+using System;
 
 namespace ELanguage
 {
@@ -21,13 +23,28 @@ namespace ELanguage
             switch (path)
             {
                 case "std":
-                    Functions.AddStdFunctions();
+                    new UseStd().Init();
                     break;
                 case "math":
-                    Functions.AddMathFunctions();
+                    new UseMath().Init();
                     break;
-                case "io":
-                    Functions.AddIOFunctions();
+                case "sysio":
+                    new Sysio().Init();
+                    break;
+                case "time":
+                    new Time().Init();
+                    break;
+                case "json":
+                    new JsonUtil().Init();
+                    break;
+                case "converter":
+                    new DataConverter().Init();
+                    break;
+                case "forms":
+                    new UseForms().Init();
+                    break;
+                case "encoding":
+                    new Encoding().Init();
                     break;
             }
         }

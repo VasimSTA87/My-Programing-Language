@@ -44,7 +44,6 @@ namespace ELangugage
             Lexer lexer = new Lexer(code);
 
             List<Token> tokens = lexer.Tokenize();
-
             if(debugMode)
             {
                 foreach (Token token in tokens)

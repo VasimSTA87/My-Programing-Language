@@ -1,27 +1,11 @@
-﻿using ELanguage.Libs;
-using ELanguage.Parser;
+﻿using ELanguage.Parser;
 using System.Collections.Generic;
 
 namespace ELangugage
 {
     internal class Functions
     {
-        private static Dictionary<string, Function> functions = new Dictionary<string, Function>();
-        
-        public static void AddStdFunctions()
-        {
-            UseStd.AddLib(functions);
-        }
-        
-        public static void AddMathFunctions()
-        {
-            UseMath.AddLib(functions);
-        }
-        
-        public static void AddIOFunctions()
-        {
-            //FileIO.AddLib(functions);
-        }
+        public static Dictionary<string, Function> functions = new Dictionary<string, Function>();
         
         public static bool IsExists(string name)
         {
@@ -40,5 +24,4 @@ namespace ELangugage
                 functions.Add(name, value);
         }
     }
-
 }

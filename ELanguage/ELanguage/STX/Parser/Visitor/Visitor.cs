@@ -1,5 +1,6 @@
 ﻿using ELanguage.Parser.Expressions;
 using ELanguage.Parser.Statements;
+using ELanguage.STX.Parser.Expressions;
 using ELangugage;
 using System.Reflection;
 
@@ -31,5 +32,6 @@ namespace ELanguage
         void Visit(VariableExpression st);
         void Visit(VariableValue st);
         void Visit(UseStatement st);
+        void Visit(IncrementExpression st);
     }
 }

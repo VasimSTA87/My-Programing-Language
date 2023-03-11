@@ -18,15 +18,24 @@ namespace ELanguage.Parser.Values
             List<Value> array = new List<Value>();
 
             for(int i = 0; i < elemetns.Length; i++)
-            {
                 array.Add(elemetns[i]);
-            }
+
             this.elemetns = array.ToArray();
         }
         
         public ArrayValue(ArrayValue array)
         {
             elemetns = array.elemetns;
+        }
+        
+        public ArrayValue(string[] arr)
+        {
+            List<Value> array = new List<Value>();
+
+            for (int i = 0; i < elemetns.Length; i++)
+                array.Add(new StringValue(arr[i]));
+            
+            elemetns = array.ToArray();
         }
 
         public Value GetValue(int index)

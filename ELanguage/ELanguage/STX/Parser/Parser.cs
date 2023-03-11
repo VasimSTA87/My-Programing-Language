@@ -1,11 +1,11 @@
 ﻿using ELanguage;
-using ELanguage.Parser;
 using ELanguage.Parser.Expressions;
 using ELanguage.Parser.Statements;
+using ELanguage.STX.Parser.Expressions;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
+using System.Windows.Forms;
 
 namespace ELangugage
 {
@@ -112,6 +112,20 @@ namespace ELangugage
                 Consume(TokenType.Equals);
                 return new ArrayAssigmentStatement(variable, index, Expression());
             }
+            
+            if (Get(0).getType() == TokenType.Word && Get(1).getType() == TokenType.Increment)
+            {
+                string variable = Consume(TokenType.Word).getValue();
+                Consume(TokenType.Increment);
+                return new AssigmentStatement(variable, new IncrementExpression(variable, "++"));
+            }
+            
+            if (Get(0).getType() == TokenType.Word && Get(1).getType() == TokenType.Decrement)
+            {
+                string variable = Consume(TokenType.Word).getValue();
+                Consume(TokenType.Decrement);
+                return new AssigmentStatement(variable, new IncrementExpression(variable, "--"));
+            }
 
             throw new Exception("invalid syntax on " + Get(0).getType() + ": " + Get(0).getValue());
         }
@@ -159,7 +173,6 @@ namespace ELangugage
 
         private Statement ImportStatement()
         {
-
             string path = Expression().Eval().AsString();
 
             List<Token> tokens = new Lexer(File.ReadAllText(path)).Tokenize();
@@ -306,9 +319,9 @@ namespace ELangugage
             Expression result = Multiplicative();
 
             if (Match(TokenType.Plus))
-                result = new BinaryExpression(result, Multiplicative(), '+');
+                result = new BinaryExpression(result, Multiplicative(), "+");
             if (Match(TokenType.Minus))
-                result = new BinaryExpression(result, Multiplicative(), '-');
+                result = new BinaryExpression(result, Multiplicative(), "-");
             
             return result;
         }
@@ -317,10 +330,12 @@ namespace ELangugage
         {
             Expression result = Unary();
 
+            if (Match(TokenType.Star) && Match(TokenType.Star))
+                result = new BinaryExpression(result, Unary(), "**");
             if (Match(TokenType.Star))
-                result = new BinaryExpression(result, Unary(), '*');
+                result = new BinaryExpression(result, Unary(), "*");
             if (Match(TokenType.Slash))
-                result = new BinaryExpression(result, Unary(), '/');
+                result = new BinaryExpression(result, Unary(), "/");
             
             return result;
         }
@@ -348,6 +363,8 @@ namespace ELangugage
             if (Match(TokenType.Word))
                 return new VariableExpression(current.getValue());
             if (Match(TokenType.String))
+                return new ValueExpression(current.getValue());
+            if (Match(TokenType.Increment))
                 return new ValueExpression(current.getValue());
 
             if (Match(TokenType.LParen))

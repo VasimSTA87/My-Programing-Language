@@ -62,7 +62,7 @@ namespace ELanguage.Parser.Expressions
                 return result;
             }
 
-            return function.Execute(values);
+            return function?.Execute(values);
         }
     }
 }
